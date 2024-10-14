@@ -358,17 +358,6 @@ func handleRoot(w http.ResponseWriter, r *http.Request) {
 
 	html += `
     </ul>
-    <h2>Limbo Domains:</h2>
-    <ul>
-`
-	limboDomainLock.RLock()
-	for _, domain := range limboDomains {
-		html += fmt.Sprintf("<li>%s</li>", domain)
-	}
-	limboDomainLock.RUnlock()
-
-	html += `
-    </ul>
     <p><a href="/domains.json">View JSON</a></p>
     <p><a href="/submit">Submit Domain</a></p>
 </body>
